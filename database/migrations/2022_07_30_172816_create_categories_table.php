@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('description')->nullable();
             $table->string('images')->nullable();
-            $table->integer('parent_id')->default(0);
+            $table->integer('category_id')->nullable();
             $table->tinyInteger('is_published')->default(1);
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }
